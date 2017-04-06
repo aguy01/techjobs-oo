@@ -9,22 +9,24 @@ public class Job {
     private static int nextId = 1;
 
     private String name;
-    private Employer employer;
+    private Employer employer;//<--one of the Job Class properties; also a field. Employer employer is now an Object.
+    // Also it represents the Employer header of the datafile, a column in Excel file with all employers listed underneath.
+    // same goes for 3 fields below.
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    public Job() {
+    public Job() {//a default constructor.
         id = nextId;
         nextId++;
     }
 
-    public Job(String aName, Employer aEmployer, Location aLocation,
+    public Job(String aName, Employer aEmployer, Location aLocation, //<-- a constructor. a method.
                PositionType aPositionType, CoreCompetency aSkill) {
 
-        this();
+        this();//calls a default constructor, which is Job() above.
 
-        name = aName;
+        name = aName; //same as this.name=name. this.name<->aName
         employer = aEmployer;
         location = aLocation;
         positionType = aPositionType;
@@ -35,6 +37,7 @@ public class Job {
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -73,7 +76,9 @@ public class Job {
     }
 
     public int getId() {
+
         return id;
+
     }
 
     @Override

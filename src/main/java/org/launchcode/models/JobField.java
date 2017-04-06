@@ -3,7 +3,8 @@ package org.launchcode.models;
 /**
  * Created by LaunchCode
  */
-public class JobField {
+public class JobField {//allows every field/class/object of Employer, Location, CoreCompetency, PositionType to have a unique id. this would avoid
+    //duplicates.
 
     private String value;
     private int id;
@@ -15,7 +16,7 @@ public class JobField {
     }
 
     public JobField(String aValue) {
-        this();
+        this();//calls default constructor JobField() above.
         value = aValue;
     }
 

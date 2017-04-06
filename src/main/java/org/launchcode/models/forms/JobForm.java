@@ -1,5 +1,5 @@
 package org.launchcode.models.forms;
-
+import java.io.*;
 import org.launchcode.models.CoreCompetency;
 import org.launchcode.models.Employer;
 import org.launchcode.models.Location;
@@ -28,6 +28,18 @@ public class JobForm {
         Don't forget to add getters and setters
      */
 
+    //to-do#3 begins adding other fields needed to create a job
+
+    @NotNull
+    private int locationId;
+    @NotNull
+    private int coreCompetencyId;
+
+    @NotNull
+    private int positionTypeId;
+    //to-do#3 ends adding other fields needed to create a job
+
+
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
     private ArrayList<CoreCompetency> coreCompetencies;
@@ -41,7 +53,15 @@ public class JobForm {
             TODO #4 - populate the other ArrayList collections needed in the view
         */
 
-        employers = jobData.getEmployers().findAll();
+        employers = jobData.getEmployers().findAll();// initialize the list of Employer objects
+
+        //to-do#4 begins populating other ArrayList collections needed in the view
+        locations = jobData.getLocations().findAll(); // initialize the list of locations objects
+        coreCompetencies = jobData.getCoreCompetencies().findAll();// initialize the list of skill objects
+        positionTypes = jobData.getPositionTypes().findAll(); // initialize the list of positiontypes objects
+
+
+        //to-do#4 ends populating other ArrayList collections needed in the view
 
     }
 
@@ -54,12 +74,39 @@ public class JobForm {
     }
 
     public int getEmployerId() {
+
         return employerId;
     }
 
     public void setEmployerId(int employerId) {
         this.employerId = employerId;
     }
+
+    //to-do#3 getters and setters begins
+    public int getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
+    public int getCoreCompetencyId() {
+        return coreCompetencyId;
+    }
+
+    public void setCoreCompetencyId(int coreCompetencyId) {
+        this.coreCompetencyId = coreCompetencyId;
+    }
+
+    public int getPositionTypeId() {
+        return positionTypeId;
+    }
+
+    public void setPositionTypeId(int positionTypeId) {
+        this.positionTypeId = positionTypeId;
+    }
+    //to-do#3 getters and setters ends.
 
     public ArrayList<Employer> getEmployers() {
         return employers;
